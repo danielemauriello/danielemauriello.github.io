@@ -1,10 +1,4 @@
 <!DOCTYPE HTML>
-<!--
-	Strata by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-	Customized for Daniele Mauriello – Economics PhD Job Market Website
--->
 <html>
 	<head>
 		<title>Daniele Mauriello</title>
@@ -45,7 +39,7 @@
 						</ul>
 					</section>
 
-				<!-- Job Market Papers — uses the original photo-grid layout for visual flair -->
+				<!-- Job Market Papers -->
 					<section id="job_market_paper">
 						<h2>Job Market Paper</h2>
 
@@ -62,7 +56,7 @@
 						</div>
 					</section>
 
-				<!-- Working Papers — uses the original photo-grid layout for visual flair -->
+				<!-- Working Papers -->
 					<section id="working_papers">
 						<h2>Working Papers</h2>
 
@@ -189,6 +183,21 @@
 
 			<!-- Lightbox overlay: covers avatar + all work-item paper covers -->
 			<style>
+				/*
+				 * Force the header name/title/affiliation onto three separate lines
+				 * on all viewport widths. The Strata theme's mobile breakpoint can
+				 * place #header h1 in a layout mode (inline/flex) where <br> tags
+				 * stop reliably creating line breaks, so we make each line an
+				 * explicit block instead of relying on <br>.
+				 */
+				#header h1 {
+					display: block;
+				}
+				#header h1 br {
+					display: block;
+					content: "";
+				}
+
 				/*
 				 * Lightbox overlay and image container.
 				 * z-index sits above the Strata theme's header (z-index ~10000 in main.css)

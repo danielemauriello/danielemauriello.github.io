@@ -1,6 +1,6 @@
-PWD c:\Users\danie\OneDrive\Desktop\Bonn\danielemauriello.github.io\files\academic
+PWD c:\Users\danie\OneDrive\Desktop\Bonn\danielemauriello.github.io\files\cv
 INPUT C:\Users\danie\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\danie\OneDrive\Desktop\Bonn\danielemauriello.github.io\files\academic\CV_Daniele_Mauriello.tex
+INPUT c:\Users\danie\OneDrive\Desktop\Bonn\danielemauriello.github.io\files\cv\CV_Daniele_Mauriello.tex
 OUTPUT CV_Daniele_Mauriello.log
 INPUT .\resume.cls
 INPUT resume.cls

@@ -1,0 +1,210 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Medium Length Professional CV
+% LaTeX Template
+% Version 2.0 (8/5/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Rishi Shah 
+%
+% Important note:
+% This template requires the resume.cls file to be in the same directory as the
+% .tex file. The resume.cls file provides the resume style used for structuring the
+% document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{resume} % Use the custom resume.cls style
+
+\usepackage[left=0.75in,top=0.6in,right=0.75in,bottom=0.6in]{geometry} % Document margins
+\usepackage[usenames,dvipsnames]{xcolor} % Needed for the gray rule under the name
+\usepackage{xcolor}
+
+\usepackage[hidelinks]{hyperref} % Clickable links; "hidelinks" keeps link text plain black, no color/box
+\newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}}
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+
+%----------------------------------------------------------------------------------------
+%	\cventry: renders one CV entry (education / experience item) as a two-column row.
+%
+%	  Left column  (~24% of line width) - date and place, stacked, italicized.
+%	  Right column (~73% of line width) - institution / role / description, stacked.
+%
+%	Arguments:
+%	  #1 - Left column content. Stack multiple lines with "\\" (e.g. period \\ place).
+%	  #2 - Right column content. Stack multiple lines with "\\"
+%	       (e.g. institution in \textbf{} \\ role \\ description).
+%
+%	Usage:
+%	  \cventry{Oct 2021 - Ongoing \\ Bonn, Germany}%
+%	          {\textbf{Bonn Graduate School of Economics} \\ Ph.D. in Economics}
+%
+%	Note: relies on \ifthenelse from the "ifthen" package, already loaded by resume.cls.
+%----------------------------------------------------------------------------------------
+\newcommand{\cventry}[2]{%
+  \noindent
+  \begin{minipage}[t]{0.24\linewidth}
+    \raggedright\textcolor{gray}{\emph{#1}}
+  \end{minipage}%
+  \hspace{0.02\linewidth}%
+  \begin{minipage}[t]{0.73\linewidth}
+    \raggedright #2
+  \end{minipage}
+  \par\medskip
+}
+\newcommand{\cvtitle}[1]{\textbf{#1}}
+\newcommand{\cvrole}[1]{\emph{#1}}
+\newcommand{\cvdesc}[1]{{\small\color{gray}#1}}
+\newcommand{\cvaward}[2]{%
+  \noindent#1\hfill\textcolor{gray}{\small #2}\par\smallskip
+}
+
+%----------------------------------------------------------------------------------------
+%	CUSTOM HEADER STYLE (overrides resume.cls's default all-caps \printname)
+%	Centered small-caps name, with contact details on a single line below it,
+%	separated by "|". No rule beneath the header.
+%	Redefines \printname, which resume.cls calls automatically at \begin{document}
+%	via \@name (set by \name{}) and \@addresstwo (set by \address{}).
+%----------------------------------------------------------------------------------------
+\makeatletter
+\def\printname{
+  \begingroup
+    \centering
+    {\fontsize{20}{22}\selectfont\scshape \@name}\par
+    \smallskip
+    {\small \@addresstwo}\par
+    \bigskip
+  \endgroup
+}
+\def\printaddress#1{} % Suppress the default centered address line (handled above instead)
+\makeatother
+
+\name{Daniele Mauriello} % Your name
+\address{\href{https://danielemauriello.github.io}{danielemauriello.github.io} \ \textbar\ daniele.mauriello@uni-bonn.de} % Website (clickable via \href) and email, single line
+
+\begin{document}
+
+
+%----------------------------------------------------------------------------------------
+%	PROFESSIONAL EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Professional Experience}
+
+    
+\cventry{Oct 2021 - Ongoing \\ Bonn, Germany}%
+        {\cvtitle{\href{https://www.econ.uni-bonn.de/bgse/en}{Bonn Graduate School of Economics}} \\
+        {\cvrole{Ph.D. in Economics}} \\[2pt]
+        {\cvdesc{Supervisors: Prof. F. Zimmermann and Prof. S. Kube\\
+        Focused on behavioral economics and finance, with research on motivated reasoning, investor behavior, and belief formation.}}}
+
+\cventry{Jan 2020 - Jun 2021 \\ London, UK}%
+        {\cvtitle{\href{https://www.gov.uk/government/organisations/competition-and-markets-authority}{Competition \& Markets Authority (CMA)}} \\
+        {\cvrole{Assistant Economist}} \\[2pt]
+        {\cvdesc{Developed hypotheses and conducted analysis to assess the potential anti-competitive effects of mergers and acquisitions under review.}}}
+
+\cventry{May 2019 - Aug 2019 \\ London, UK}%
+        {\cvtitle{\href{https://www.compasslexecon.com}{Compass Lexecon}} \\
+        {\cvrole{Intern}} \\[2pt]
+        {\cvdesc{Modeled complex financial data to quantify economic damages in high-stakes litigation and international arbitration cases.}}}
+       
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	ACADEMIC EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Academic Experience}
+        
+        \cventry{Oct 2023 -- Mar 2025 \\ Bonn, Germany}%
+                {\cvtitle{\href{https://www.econ.uni-bonn.de/bgse/en}{Bonn Graduate School of Economics}} \\
+                {\cvrole{Teaching Assistant}} \\[2pt]
+                {\cvdesc{Teaching assistant for MSc/PhD-level courses in \href{https://www.wiwi.uni-bonn.de/gaudecker/_static/epp_bonn/landing-page.html}{programming} and applied microeconomics, and BSc-level courses in \href{https://www.wiwi.uni-bonn.de/gaudecker/_static/applied-data-analytics/landing-page.html\#}{data analytics}.
+                }}}
+                
+        \cventry{Feb 2017 - Jun 2018 \\ Milan, Italy}%
+                {\cvtitle{\href{https://www.igier.unibocconi.it}{IGIER, Bocconi University}} \\
+                {\cvrole{Research Assistant}} \\[2pt]
+                {\cvdesc{Supervisor: Prof. M. Ottaviani \\ Contributed to research in information economics through model development and simulation-based analysis.}}}
+        
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Education}
+
+\cventry{Sep 2016 - Mar 2019 \\ Milan, Italy}%
+        {\cvtitle{\href{https://www.unibocconi.it/en}{Bocconi University}} \\
+        {\cvrole{MSc in Economic and Social Sciences, cum laude}} \\[2pt]
+        {\cvdesc{Supervisor: Prof. N. Gennaioli}}}
+
+\cventry{Sep 2013 - Sep 2016 \\ Milan, Italy}%
+        {\cvtitle{\href{https://www.unibocconi.it/en}{Bocconi University}} \\
+        {\cvrole{BSc in Economic and Social Sciences, cum laude}} \\[2pt]
+        {\cvdesc{Supervisor: Prof. C. Fumagalli}}}
+
+\cventry{Sep - Dec 2015 \\ Chicago, USA}%
+        {\cvtitle{\href{https://www.northwestern.edu}{Northwestern University}} \\[2pt]
+        {\cvrole{BSc, Visiting Student}}}
+
+\end{rSection}
+
+\newpage
+%----------------------------------------------------------------------------------------
+%	AWARDS, SCOLARSHIPS, AND GRANTS SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Awards, Scholarships, and Grants}
+
+\cvaward{Bonn Graduate School of Economics, doctoral scholarship}{2025 - Present}
+\cvaward{IZA, doctoral scholarship}{2023 - 2025}
+\cvaward{CRC TR 224 \& IZA, Research Grant (EUR 7,594)}{2025}
+\cvaward{CRC TR 224, Research Grant (EUR 4,718)}{2025}
+\cvaward{briq Institute, doctoral scholarship}{2022 - 2023}
+\cvaward{BGSE \& briq, Research Grant (EUR 2,950)}{2023}
+\cvaward{Bonn Graduate School of Economics, doctoral scholarship}{2021}
+
+\end{rSection}
+
+
+%----------------------------------------------------------------------------------------
+%	ADDITIONAL EXPERIENCE
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Additional Experience}
+
+    
+\cventry{Sep 2015 - Jan 2020 \\ Milan, Italy}%
+                {\cvtitle{TestWeCan} \\
+                {\cvrole{Head of Didactics}} \\[2pt]
+                {\cvdesc{Taught maths and logic to high school students preparing for the Bocconi admission test; coordinated a team of tutors and authored the first edition of the \href{https://www.testbusters.it/libri/test-ammissione/bocconi-e-universita-private/kit-test-bocconi-2025-2026?srsltid=AfmBOoqy3MV4gVIXHQ38LcTBWZMM_9Hkjan8dYndpXY_mN2S1VPm5eE_}{test preparation coursebook}.}}}
+
+\cventry{Jul 2018 - May 2019 \\ Milan, Italy}%
+                {\cvtitle{\href{https://www.weroad.com/}{WeRoad}} \\
+                {\cvrole{Travel Coordinator}} \\[2pt]
+                {\cvdesc{Organized trips around the world for young backpackers, fostering team spirit among participants and guiding them through the itinerary.}}}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	TECHNICAL STRENGTHS SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Skills}
+
+\begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
+IT Skills \ & Python (Proficient), Stata (Proficient), Excel (Proficient), R (Good) \\[4pt]
+Languages \ & Italian (Native), English (Fluent), Spanish (Good), French (Good), German (Basic) \\
+\end{tabular}
+
+\end{rSection}
+
+\end{document}

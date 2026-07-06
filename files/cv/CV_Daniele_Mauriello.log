@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.5.4)  5 JUL 2026 19:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.5.4)  6 JUL 2026 14:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -284,7 +284,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 203.
 
-Overfull \hbox (8.73909pt too wide) in paragraph at lines 203--207
+Overfull \hbox (157.33992pt too wide) in paragraph at lines 203--207
 [][] 
  []
 
@@ -310,7 +310,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  72i,6n,84p,665b,440s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/danie/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/danie/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/danie/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/danie/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/danie/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on CV_Daniele_Mauriello.pdf (2 pages, 91849 bytes).
+Output written on CV_Daniele_Mauriello.pdf (2 pages, 92143 bytes).
 PDF statistics:
  53 PDF objects out of 1000 (max. 8388607)
  3 named destinations out of 1000 (max. 500000)

@@ -45,7 +45,7 @@
 
 						<div class="row">
 							<article class="col-6 col-12-xsmall work-item">
-								<a href="images/paper_covers/cover_double_down.jpg" class="image fit thumb"><img src="images/paper_covers/cover_double_down.jpg" alt="Motivated Reasoning and Investor Repurchase Behavior" /></a>
+								<a href="images/paper_covers/cover_double_down.jpg" class="image fit thumb" data-abstract="abstract_papers/abstract_double_down.md" data-title="Sell or Hold? Double Down! The Role of Ownership on Beliefs and (Re)Investment Decisions (with M. Forti)"><img src="images/paper_covers/cover_double_down.jpg" alt="Motivated Reasoning and Investor Repurchase Behavior" /></a>
 								<h3>Sell or Hold? Double Down! The Role of Ownership on Beliefs and (Re)Investment Decisions <br /> 
 									<em style="font-weight:normal">(with M. Forti)</em></h3>
 								<p>We document investors' tendency to double down on their losing positions.
@@ -62,7 +62,7 @@
 
 						<div class="row">
 							<article class="col-6 col-12-xsmall work-item">
-								<a href="images/paper_covers/cover_interaction.png" class="image fit thumb"><img src="images/paper_covers/cover_interaction.png" alt="Motivated Reasoning and Correlation Neglect" /></a>
+								<a href="images/paper_covers/cover_interaction.png" class="image fit thumb" data-abstract="abstract_papers/abstract_interaction.md" data-title="Motivated Reasoning and Bounded Rationality: Independence or Interaction?"><img src="images/paper_covers/cover_interaction.png" alt="Motivated Reasoning and Correlation Neglect" /></a>
 								<h3>Motivated Reasoning and Bounded Rationality: Independence or Interaction?</h3>
 								<p>We study the interaction between motivated reasoning and bounded rationality.
 								Do cognitive biases give individuals a convenient justification for reaching conclusions they already want to reach?
@@ -71,7 +71,7 @@
 							</article>
 							
 							<article class="col-6 col-12-xsmall work-item">
-								<a href="images/paper_covers/cover_fast_decline_slow_recoveries.png" class="image fit thumb"><img src="images/paper_covers/cover_fast_decline_slow_recoveries.png" alt="Asymmetric Perceptions of the Pace of Economic Change" /></a>
+								<a href="images/paper_covers/cover_fast_decline_slow_recoveries.png" class="image fit thumb" data-abstract="abstract_papers/abstract_fast_decline_slow_recoveries.md" data-title="Fast Declines, Slow Recoveries? Asymmetric Perceptions of Economic Change (with Z. Liu, S. Kube, J. Lammers)"><img src="images/paper_covers/cover_fast_decline_slow_recoveries.png" alt="Asymmetric Perceptions of the Pace of Economic Change" /></a>
 								<h3>Fast Declines, Slow Recoveries? Asymmetric Perceptions of Economic Change <br />
 									<em style="font-weight:normal">(with Z. Liu, S. Kube, J. Lammers)</em></h3>
 								<p>We document individuals' tendency to perceive the pace of negative economic developments as faster than that of equivalent positive ones. We identify the contextual reading of economic dynamics as a key driver for the phenomenon: individuals project the outcomes they expect in the graphs they observe.</p>
@@ -126,8 +126,8 @@
 						</div>
 
 						<p>
-							From 2015 to 2020, I was Head of Didactics at <strong>TestWeCan</strong> (Milan, Italy),
-							later acquired by <a href="https://www.testbusters.it/">Testbusters</a>. I taught mathematics
+							I joined <strong>TestWeCan</strong> (Milan, Italy) shortly after its founding in 2015 and served as Partner and Head of Didactics until 2020, when it
+							was acquired by <a href="https://www.testbusters.it/">Testbusters</a>. I taught mathematics
 							and problem-solving to high school students preparing for the Bocconi University admission test,
 							coordinated a team of tutors, and organised orientation meetings at local high schools.
 							I also authored the first edition of the
@@ -174,7 +174,10 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
-			<!-- Lightbox overlay: covers avatar + all work-item paper covers -->
+			<!-- Markdown renderer used to display paper abstracts -->
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
+
+			<!-- Lightbox overlay (avatar) + abstract overlay (paper covers) -->
 			<style>
 				/*
 				 * Force the header name/title/affiliation onto three separate lines
@@ -192,7 +195,15 @@
 				}
 
 				/*
-				 * Lightbox overlay and image container.
+				 * Shared entrance animation for both overlays.
+				 */
+				@keyframes dm-lb-in {
+					from { opacity: 0; transform: scale(0.96); }
+					to   { opacity: 1; transform: scale(1); }
+				}
+
+				/*
+				 * Image lightbox (avatar only).
 				 * z-index sits above the Strata theme's header (z-index ~10000 in main.css)
 				 * so the overlay covers the sidebar too.
 				 */
@@ -216,12 +227,7 @@
 					border-radius: 3px;
 					box-shadow: 0 8px 40px rgba(0,0,0,0.6);
 					cursor: default;
-					/* subtle entrance animation */
 					animation: dm-lb-in 0.18s ease;
-				}
-				@keyframes dm-lb-in {
-					from { opacity: 0; transform: scale(0.96); }
-					to   { opacity: 1; transform: scale(1); }
 				}
 				#dm-lightbox-close {
 					position: fixed;
@@ -240,59 +246,129 @@
 				}
 				#dm-lightbox-close:hover { opacity: 1; }
 
-				/* Make clickable images show a pointer so the affordance is clear */
-				a.image.avatar,
-				a.image.fit.thumb {
+				/* Avatar keeps the "enlarge image" affordance */
+				a.image.avatar {
 					cursor: zoom-in;
+				}
+
+				/*
+				 * Abstract overlay (paper covers).
+				 * Same z-index tier as the image lightbox; only one is ever open at a time.
+				 */
+				#dm-abstract-overlay {
+					display: none;
+					position: fixed;
+					inset: 0;
+					background: rgba(0, 0, 0, 0.88);
+					z-index: 99999;
+					align-items: center;
+					justify-content: center;
+					padding: 2rem;
+				}
+				#dm-abstract-overlay.is-visible {
+					display: flex;
+				}
+				#dm-abstract-box {
+					background: #fff;
+					color: #222;
+					width: 100%;
+					max-width: 640px;
+					max-height: 82vh;
+					overflow-y: auto;
+					border-radius: 4px;
+					padding: 2rem 2.2rem;
+					box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+					cursor: default;
+					animation: dm-lb-in 0.18s ease;
+				}
+				#dm-abstract-box h3 {
+					margin-top: 0;
+					margin-bottom: 1rem;
+					font-size: 1.15rem;
+					line-height: 1.4;
+				}
+				#dm-abstract-body p {
+					margin: 0 0 0.9em;
+					line-height: 1.6;
+				}
+				#dm-abstract-body p:last-child {
+					margin-bottom: 0;
+				}
+				#dm-abstract-close {
+					position: fixed;
+					top: 1.1rem;
+					right: 1.4rem;
+					font-size: 2rem;
+					line-height: 1;
+					color: #fff;
+					cursor: pointer;
+					background: none;
+					border: none;
+					padding: 0.2rem 0.5rem;
+					opacity: 0.75;
+					transition: opacity 0.15s;
+					z-index: 100000;
+				}
+				#dm-abstract-close:hover { opacity: 1; }
+
+				/* Paper covers now open an abstract, not an enlarged image */
+				a.image.fit.thumb {
+					cursor: pointer;
 				}
 			</style>
 
-			<!-- Lightbox markup (single instance, reused for every image) -->
+			<!-- Lightbox markup (avatar) -->
 			<div id="dm-lightbox-overlay" role="dialog" aria-modal="true" aria-label="Enlarged image">
 				<button id="dm-lightbox-close" aria-label="Close">&#x2715;</button>
 				<img id="dm-lightbox-img" src="" alt="" />
 			</div>
 
+			<!-- Abstract markup (paper covers) -->
+			<div id="dm-abstract-overlay" role="dialog" aria-modal="true" aria-label="Paper abstract">
+				<button id="dm-abstract-close" aria-label="Close">&#x2715;</button>
+				<div id="dm-abstract-box">
+					<h3 id="dm-abstract-title"></h3>
+					<div id="dm-abstract-body"></div>
+				</div>
+			</div>
+
 			<script>
 				/**
-				 * Self-contained lightbox for the academic website.
+				 * Image lightbox for the sidebar avatar.
 				 *
-				 * Intercepts clicks on:
-				 *   • the sidebar avatar link  (.image.avatar)
-				 *   • all paper-cover thumb links  (.image.fit.thumb)
+				 * Clicking the avatar opens its linked image at full size in a dark
+				 * overlay instead of navigating to it. Closes on: the × button,
+				 * clicking the dark backdrop, or pressing Escape.
 				 *
-				 * Opens the link's href as a full-size image in an overlay instead of
-				 * navigating to a new page.  The overlay closes on:
-				 *   • clicking the × button
-				 *   • clicking the dark backdrop
-				 *   • pressing Escape
-				 *
-				 * No jQuery dependency — plain DOM APIs only.
+				 * Paper cover thumbnails are handled separately by initAbstractModal
+				 * below, so this only ever binds to `a.image.avatar`.
 				 */
-				(function initLightbox() {
+				(function initAvatarLightbox() {
 					const overlay  = document.getElementById('dm-lightbox-overlay');
 					const imgEl    = document.getElementById('dm-lightbox-img');
 					const closeBtn = document.getElementById('dm-lightbox-close');
 
-					/** Open the lightbox showing the image at `src`. */
+					/**
+					 * Open the lightbox showing the image at `src`.
+					 * @param {string} src - image URL to display.
+					 * @param {string} [alt] - accessible alt text for the image.
+					 */
 					function openLightbox(src, alt) {
 						imgEl.src = src;
 						imgEl.alt = alt || '';
 						overlay.classList.add('is-visible');
-						document.body.style.overflow = 'hidden';   // prevent background scroll
+						document.body.style.overflow = 'hidden';
 					}
 
-					/** Close the lightbox and restore scroll. */
+					/** Close the lightbox and restore page scroll. */
 					function closeLightbox() {
 						overlay.classList.remove('is-visible');
 						document.body.style.overflow = '';
-						// Delay clearing src so the closing animation doesn't flash
 						setTimeout(function() { imgEl.src = ''; }, 200);
 					}
 
-					// Intercept all lightbox-eligible anchor clicks
 					document.addEventListener('click', function handleClick(e) {
-						const anchor = e.target.closest('a.image.avatar, a.image.fit.thumb');
+						const anchor = e.target.closest('a.image.avatar');
 						if (!anchor) return;
 						e.preventDefault();
 						const src = anchor.getAttribute('href');
@@ -300,18 +376,96 @@
 						openLightbox(src, alt);
 					});
 
-					// Close on backdrop click (but not on the image itself)
 					overlay.addEventListener('click', function(e) {
 						if (e.target === overlay) closeLightbox();
 					});
 
-					// Close on × button
 					closeBtn.addEventListener('click', closeLightbox);
 
-					// Close on Escape key
 					document.addEventListener('keydown', function(e) {
 						if (e.key === 'Escape' && overlay.classList.contains('is-visible')) {
 							closeLightbox();
+						}
+					});
+				}());
+
+				/**
+				 * Abstract modal for job-market / working paper covers.
+				 *
+				 * Clicking a paper cover fetches the paper's abstract (a markdown
+				 * file referenced via the anchor's `data-abstract` attribute),
+				 * renders it with marked.js, and shows it in a dark overlay in
+				 * place of the enlarged image. Abstracts are cached in-memory after
+				 * their first successful fetch. Closes on: the × button, clicking
+				 * the dark backdrop, or pressing Escape.
+				 */
+				(function initAbstractModal() {
+					const overlay  = document.getElementById('dm-abstract-overlay');
+					const titleEl  = document.getElementById('dm-abstract-title');
+					const bodyEl   = document.getElementById('dm-abstract-body');
+					const closeBtn = document.getElementById('dm-abstract-close');
+					const cache    = {};
+
+					/**
+					 * Fetch and cache the raw markdown contents of an abstract file.
+					 * @param {string} path - relative path to the .md abstract file.
+					 * @returns {Promise<string>} resolves with the raw markdown text.
+					 */
+					function fetchAbstract(path) {
+						if (cache[path]) return Promise.resolve(cache[path]);
+						return fetch(path).then(function(response) {
+							if (!response.ok) {
+								throw new Error('Could not load abstract (' + response.status + ')');
+							}
+							return response.text();
+						}).then(function(text) {
+							cache[path] = text;
+							return text;
+						});
+					}
+
+					/**
+					 * Open the abstract overlay for one paper: show the title and a
+					 * loading placeholder immediately, then fill in the rendered
+					 * abstract body once it has been fetched.
+					 * @param {string} path - relative path to the .md abstract file.
+					 * @param {string} title - paper title shown as the modal heading.
+					 */
+					function openAbstract(path, title) {
+						titleEl.textContent = title || '';
+						bodyEl.innerHTML = '<p>Loading abstract…</p>';
+						overlay.classList.add('is-visible');
+						document.body.style.overflow = 'hidden';
+
+						fetchAbstract(path).then(function(markdown) {
+							bodyEl.innerHTML = window.marked ? marked.parse(markdown) : markdown;
+						}).catch(function() {
+							bodyEl.innerHTML = '<p>Sorry, the abstract could not be loaded.</p>';
+						});
+					}
+
+					/** Close the abstract overlay and restore page scroll. */
+					function closeAbstract() {
+						overlay.classList.remove('is-visible');
+						document.body.style.overflow = '';
+					}
+
+					document.addEventListener('click', function handleClick(e) {
+						const anchor = e.target.closest('a[data-abstract]');
+						if (!anchor) return;
+						e.preventDefault();
+						openAbstract(anchor.getAttribute('data-abstract'), anchor.getAttribute('data-title'));
+					});
+
+					overlay.addEventListener('click', function(e) {
+						if (e.target === overlay) closeAbstract();
+					});
+
+					closeBtn.addEventListener('click', closeAbstract);
+
+					document.addEventListener('keydown', function(e) {
+						if (e.key === 'Escape' && overlay.classList.contains('is-visible')) {
+							closeAbstract();
 						}
 					});
 				}());

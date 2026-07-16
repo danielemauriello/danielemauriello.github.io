@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.5.4)  16 JUL 2026 03:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.5.4)  16 JUL 2026 15:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/danie/OneDrive/Desktop/Bonn/danielemauriello.github.io/files/cv/CV_Daniele_Mauriello.tex
-(c:/Users/danie/OneDrive/Desktop/Bonn/danielemauriello.github.io/files/cv/CV_Daniele_Mauriello.tex
+**c:/Users/danie/OneDrive/Desktop/Bonn/danielemauriello.github.io/files/cv/Mauriello_Daniele_CV.tex
+(c:/Users/danie/OneDrive/Desktop/Bonn/danielemauriello.github.io/files/cv/Mauriello_Daniele_CV.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
 (resume.cls
@@ -219,8 +219,8 @@ File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) (C:\Users\danie\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2026-02-18 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count298
-) (CV_Daniele_Mauriello.aux)
-\openout1 = `CV_Daniele_Mauriello.aux'.
+) (Mauriello_Daniele_CV.aux)
+\openout1 = `Mauriello_Daniele_CV.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
 LaTeX Font Info:    ... okay on input line 91.
@@ -290,9 +290,9 @@ LaTeX Font Info:    ... okay on input line 91.
 \everyMPtoPDFconversion=\toks21
 )
 Package hyperref Info: Link coloring OFF on input line 91.
- (CV_Daniele_Mauriello.out) (CV_Daniele_Mauriello.out)
+ (Mauriello_Daniele_CV.out) (Mauriello_Daniele_CV.out)
 \@outlinefile=\write3
-\openout3 = `CV_Daniele_Mauriello.out'.
+\openout3 = `Mauriello_Daniele_CV.out'.
 
 LaTeX Font Info:    Trying to load font information for OMS+lmr on input line 91.
  (C:\Users\danie\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmr.fd
@@ -326,12 +326,12 @@ Overfull \hbox (0.75233pt too wide) in paragraph at lines 214--218
 [][] 
  []
 
-[2] (CV_Daniele_Mauriello.aux)
+[2] (Mauriello_Daniele_CV.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
  ***********
-Package rerunfilecheck Info: File `CV_Daniele_Mauriello.out' has not changed.
+Package rerunfilecheck Info: File `Mauriello_Daniele_CV.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
@@ -343,7 +343,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  72i,8n,84p,665b,516s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/danie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/danie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/danie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/danie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/danie/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb>
-Output written on CV_Daniele_Mauriello.pdf (2 pages, 128354 bytes).
+Output written on Mauriello_Daniele_CV.pdf (2 pages, 128354 bytes).
 PDF statistics:
  56 PDF objects out of 1000 (max. 8388607)
  3 named destinations out of 1000 (max. 500000)

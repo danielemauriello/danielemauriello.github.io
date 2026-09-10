@@ -2079,7 +2079,9 @@ input, select, textarea {
 				font-weight: 400;
 				left: 50%;
 				line-height: 2.25em;
-				margin: -1.25em 0 0 -4.5em;
+				/* Centre the label on its own size regardless of the word's width
+				   (the original theme used a fixed negative margin tuned for "View"). */
+				transform: translate(-50%, -50%);
 				opacity: 0;
 				padding: 0 1.5em;
 				position: absolute;

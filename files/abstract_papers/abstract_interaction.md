@@ -1,5 +1,5 @@
 In this paper, we study whether motives can distort beliefs by tipping individuals between competing accounts of the world.
 We do so by proposing a theoretical model in which, in addition to distorting beliefs within a mental model, individuals first choose, among several mental models, the one that best trades off the motivated value of the conclusions it licenses against its defensibility.
-We test the model's predictions in an online experiment ($n = 1{,}212$) with a $2\times2$ design that crosses an environment conducive to a cognitive bias with a directional motive, and that separates cases in which the bias and the motive point in the same direction from those in which they point in opposite directions.
+We test the model's predictions in an online experiment (n = 1,212) with a 2x2 design that crosses an environment conducive to a cognitive bias with a directional motive, and that separates cases in which the bias and the motive point in the same direction from those in which they point in opposite directions.
 When the two forces are aligned, we find suggestive evidence that they compound; however, when they are opposed, we don't find evidence that a countervailing motive can pull individuals back towards rational beliefs.
 The interaction between cognitive bias and motivated reasoning is thus direction-dependent and, on balance, harmful.

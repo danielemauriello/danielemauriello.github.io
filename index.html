@@ -17,6 +17,10 @@
 						PhD Candidate in Economics<br />
 						University of Bonn
 					</h1>
+					<ul class="icons">
+						<li><a href="mailto:daniele.mauriello@uni-bonn.de" class="icon solid fa-envelope" title="Email"><span class="label">Email</span></a></li>
+						<li><a href="tel:+393343755369" class="icon solid fa-phone" title="Phone"><span class="label">Phone</span></a></li>
+					</ul>
 				</div>
 
 			</header>
@@ -201,6 +205,61 @@
 				#header h1 br {
 					display: block;
 					content: "";
+				}
+
+				/* Email/phone icon links under the sidebar title */
+				#header ul.icons {
+					margin: 1em 0 0 0;
+				}
+				#header ul.icons a {
+					color: rgba(255, 255, 255, 0.5);
+					border-bottom: 0;
+				}
+				#header ul.icons a:hover {
+					color: #ffffff;
+				}
+
+				/* Slightly tighter spacing between main sections (theme default: 4em) */
+				@media screen and (min-width: 737px) {
+					#main > section {
+						margin-top: 3em;
+						padding-top: 3em;
+					}
+					#main > section:first-child {
+						margin-top: 0;
+						padding-top: 0;
+					}
+				}
+
+				/* Space between a paper's description and its buttons */
+				.work-item p + ul.actions {
+					margin-top: 1.5em;
+				}
+				/* Avoid stacking the button margin on top of the work-item margin,
+				   so the gap to the next section matches the one below the CV button */
+				.work-item ul.actions:last-child {
+					margin-bottom: 0;
+				}
+				/* Tighter, equal gap below the CV and Paper buttons before the next divider */
+				#intro > ul.actions:last-child,
+				#job_market_paper .work-item {
+					margin-bottom: 0;
+				}
+				/* Less space above the divider lines that follow those buttons */
+				#main > #job_market_paper,
+				#main > #working_papers,
+				#main > #teaching {
+					margin-top: 2em;
+				}
+				/* Same tight gap below Working Papers. On very small screens the two
+				   papers stack, so only the last one loses its bottom margin there. */
+				#working_papers .work-item:last-child {
+					margin-bottom: 0;
+				}
+				@media screen and (min-width: 481px) {
+					#working_papers .work-item {
+						margin-bottom: 0;
+					}
 				}
 
 				/*
